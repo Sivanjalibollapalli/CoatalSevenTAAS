@@ -13,6 +13,7 @@ const AIML = lazy(() => import('./pages/ai-ml'));
 const QuantumComputing = lazy(() => import('./pages/quantum-computing'));
 const AutomationTesting = lazy(() => import('./pages/automation-testing'));
 const FullStackDevelopment = lazy(() => import('./pages/full-stack-development'));
+const ImpactStories = lazy(() => import('./pages/ImpactStories'));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/connect" element={<Connect />} />
+            <Route path="/stories" element={<Suspense fallback={<div>Loading...</div>}><ImpactStories /></Suspense>} />
             <Route path="/technologies/ai-ml" element={<Suspense fallback={<div>Loading...</div>}><AIML /></Suspense>} />
             <Route path="/technologies/quantum-computing" element={<Suspense fallback={<div>Loading...</div>}><QuantumComputing /></Suspense>} />
             <Route path="/technologies/automation-testing" element={<Suspense fallback={<div>Loading...</div>}><AutomationTesting /></Suspense>} />

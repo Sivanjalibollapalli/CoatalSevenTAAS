@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, Award, Users, Globe, ArrowRight } from 'lucide-react';
+import { Target, Eye, Heart, Award, Users, Globe } from 'lucide-react';
+import PartnerLogoWall from '../components/PartnerLogoWall';
 
 const About = () => {
   const values = [
@@ -167,6 +168,31 @@ const About = () => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Trusted By Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-extrabold text-gray-900 mb-4"
+          >
+            Trusted by leading enterprises
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12"
+          >
+            Global brands rely on Coastal Seven engineers to accelerate digital transformation and deliver mission-critical projects.
+          </motion.p>
+        </div>
+        <PartnerLogoWall />
       </section>
 
       {/* Team */}

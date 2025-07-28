@@ -86,30 +86,30 @@ const evaluation = [
   'Evaluation on technical, teamwork, growth, business, and ownership.'
 ];
 
-const onboardingSuccess = [
+const programOutcome = [
   {
-    title: 'Growth Mindset',
-    description: 'Focus on both current competencies and potential of team member.'
+    title: 'Tech-Stack Mastery',
+    description: 'Hands-on proficiency across modern frontend, backend, DevOps and cloud tooling.'
   },
   {
-    title: 'Psychological Safety',
-    description: 'Encourage team member to ask questions and clarify doubts on all matters.'
+    title: 'Agent Enablement',
+    description: 'Capability to configure and run all seven AI testing agents in real projects.'
   },
   {
-    title: 'Feedback Culture',
-    description: 'Regularly solicit feedback from team member about onboarding experience.'
+    title: 'Real-Product Exposure',
+    description: 'Experience shipping features and fixes to production within Agile squads.'
   },
   {
-    title: 'Collaboration',
-    description: 'Introduce team member to leaders and create opportunities for relationship building.'
+    title: 'Career Acceleration',
+    description: 'Clear two-year growth roadmap with vendor placements and role rotations.'
   },
   {
-    title: 'Decision Making',
-    description: 'Provide guidelines and clear boundaries for decision making.'
+    title: 'Rewards & Bonuses',
+    description: 'Performance-linked hikes, certification sponsorships and quarterly bonuses.'
   },
   {
-    title: 'Courageous Conversations',
-    description: 'Foster open, honest dialogues, empowering to speak up, ask questions, and grow with confidence.'
+    title: 'Portfolio & Network',
+    description: 'Impressive GitHub repos, case studies, and an expanding professional network.'
   },
 ];
 
@@ -229,12 +229,29 @@ const Programs = () => {
         <CardList items={evaluation} columns={1} />
       </Section>
 
-      {/* Onboarding & Success */}
-      <Section title="Onboarding & Success" bg="bg-gray-50">
-        <CardList items={onboardingSuccess} columns={2} />
+      {/* Program Outcomes */}
+      <Section title="Program Outcomes" bg="bg-gradient-to-r from-sky-50 via-emerald-50 to-lime-50" center>
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-700 mb-12">
+          Graduates leave the internship not just job-ready but future-ready—armed with deep technical expertise, autonomous testing agents, and a proven delivery mindset.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {programOutcome.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              className="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-700 leading-relaxed flex-1">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </Section>
 
-      {/* (Call-to-action removed per request) */}
+
     </motion.div>
   );
 };

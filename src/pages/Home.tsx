@@ -218,29 +218,53 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-logo-teal">
+      {/* AI Agents Section */}
+      <section className="py-24 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of successful graduates who have launched their tech careers with us.
-            </p>
-            <Link
-              to="/programs"
-              className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>View Our Programs</span>
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </motion.div>
+            Meet Our AI Testing Agents
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12"
+          >
+            Accelerate quality assurance with seven specialised, autonomous agents built for every testing need.
+          </motion.p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { name: 'Testaraptor', subtitle: 'Manual Tester', icon: '🔍', color: 'bg-gray-800', textColor: 'text-white', description: 'Expert in exploratory and manual testing. Ensures your app works as intended, catching issues early.' },
+              { name: 'Scriptodon', subtitle: 'Automation Script Generator', icon: '📝', color: 'bg-blue-900', textColor: 'text-white', description: 'Automatically creates robust test scripts. Accelerates automation and reduces manual effort.' },
+              { name: 'Bugzilla Rex', subtitle: 'Bug Reports Agent', icon: '🐞', color: 'bg-red-900', textColor: 'text-white', description: 'Finds, logs, and tracks bugs efficiently. Keeps your project on track with clear, actionable reports.' },
+              { name: 'Swaggosaur', subtitle: 'Swagger → Test Case Agent', icon: '📄', color: 'bg-teal-900', textColor: 'text-white', description: 'Converts Swagger API specs into test cases. Bridges the gap between documentation and testing.' },
+              { name: 'Restaceratops', subtitle: 'API Tester', icon: '🔗', color: 'bg-indigo-900', textColor: 'text-white', description: 'Performs deep API testing for reliability. Validates endpoints, responses, and integrations.' },
+              { name: 'Loadosaurus', subtitle: 'Performance Tester', icon: '🚀', color: 'bg-yellow-900', textColor: 'text-white', description: 'Simulates heavy loads and stress tests. Ensures your app performs under pressure.' },
+              { name: 'Thinkodactyl', subtitle: 'LLM Test Advisor', icon: '💡', color: 'bg-purple-900', textColor: 'text-white', description: 'Provides AI-driven test strategies and advice. Leverages LLMs for smarter, adaptive testing.' },
+            ].map((agent, idx) => (
+              <motion.div
+                key={agent.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className={`${agent.color} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center`}
+              >
+                <div className="text-5xl mb-4">{agent.icon}</div>
+                <h3 className={`text-xl font-bold mb-1 ${agent.textColor}`}>{agent.name}</h3>
+                <p className={`font-medium mb-2 ${agent.textColor}`}>{agent.subtitle}</p>
+                <p className={`text-base mt-2 ${agent.textColor}`}>{agent.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </motion.div>

@@ -1,0 +1,30 @@
+lightning:
+  app:
+    name: coastal-seven-taas
+    description: "Coastal Seven Talent-as-a-Service (TaaS) Web Application"
+    icon: "🚀"
+    category: "web"
+    tags: ["react", "typescript", "vite", "tailwindcss"]
+  
+  # Build configuration
+  build:
+    requirements:
+      - nodejs>=18.0.0
+      - npm>=9.0.0
+    
+    commands:
+      - npm install
+      - npm run build
+    
+    artifacts:
+      - dist/
+  
+  # Runtime configuration
+  runtime:
+    type: "web"
+    port: 4173  # Vite preview port
+    command: "npm run preview"
+    
+  # Environment variables (if needed)
+  env:
+    NODE_ENV: "production" 

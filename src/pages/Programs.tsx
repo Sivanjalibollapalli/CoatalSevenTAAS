@@ -5,13 +5,6 @@ import Img1 from '../../1.png';
 import Img2 from '../../2.png';
 import Img3 from '../../3.png';
 
-// Import partner logos
-import HSBClogo from '../assets/partner-logos/hsbc-logo.png';
-import Infosyslogo from '../assets/partner-logos/infosys-logo.png';
-import IBMlogo from '../assets/partner-logos/ibm-logo.png';
-import CapgeminiLogo from '../assets/partner-logos/capgemini-logo.png';
-import AccentureLogo from '../assets/partner-logos/accenture-logo.png';
-
 const stats = [
   {
     title: '75% of companies',
@@ -284,86 +277,6 @@ const Programs = () => {
             </div>
           </div>
         </motion.div>
-      </Section>
-
-      {/* Partnership Section */}
-      <Section title="Partnership" bg="bg-gradient-to-r from-gray-50 to-gray-100" center>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-gray-700 max-w-3xl mx-auto mb-8"
-        >
-          Strategic partnerships with leading companies to provide direct placement opportunities.
-        </motion.p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16">
-          {/* HSBC */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="w-48 h-32 mx-auto flex items-center justify-center">
-              <img src={HSBClogo} alt="HSBC" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-
-          {/* Infosys */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="w-48 h-32 mx-auto flex items-center justify-center">
-              <img src={Infosyslogo} alt="Infosys" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-
-          {/* IBM */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="w-48 h-32 mx-auto flex items-center justify-center">
-              <img src={IBMlogo} alt="IBM" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-
-          {/* Capgemini */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="w-48 h-32 mx-auto flex items-center justify-center">
-              <img src={CapgeminiLogo} alt="Capgemini" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-
-          {/* Accenture */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="w-48 h-32 mx-auto flex items-center justify-center">
-              <img src={AccentureLogo} alt="Accenture" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-        </div>
       </Section>
 
       {/* Team Member Experience, Career Placements, Internship Journey, Leadership Expectations */}

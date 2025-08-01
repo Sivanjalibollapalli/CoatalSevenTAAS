@@ -1,0 +1,66 @@
+# Development files
+node_modules/
+.git/
+.gitignore
+README.md
+
+# Bolt files (removed)
+.bolt/
+
+# Build artifacts (will be generated during build)
+dist/
+
+# Development configs
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test files
+coverage/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Temporary files
+*.tmp
+*.temp
+
+# Image optimization files
+optimized-images/
+optimize-images.js
+test-sharp.js
+
+# Presentation files
+*.pptx
+*.pptm
+*.ppt
+
+# Backup images
+src/assets/AI_ML_backup.png
+
+# Large image files (will be optimized during build)
+1.png
+2.png
+3.png
+
+# Deployment files
+DEPLOYMENT.md
+deploy.sh
+deploy_alternative.py
+app.py
+lightning_app.py
+lightning_deploy.py
+simple_deploy.py 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Users, Trophy, Zap, ChevronDown, Clock, Target, Award, CheckCircle, Star, Users2, Calendar, BookOpen, Lightbulb, Rocket, TrendingUp, Globe, Shield } from 'lucide-react';
-import aiMLImg from '../assets/AI&ML.png';
+import aiMLImg from '../assets/AI_ML.png';
 import quantumImg from '../assets/Quantum computing.png';
 import automationImg from '../assets/Automation testing.png';
 import fullStackImg from '../assets/Full stack.png';

@@ -1,5 +1,5 @@
 import React from 'react';
-import aiMLImg from '../assets/AI&ML.png';
+import aiMLImg from '../assets/AI_ML.png';
 
 const AIML = () => (
   <div className="min-h-screen bg-gradient-to-br from-primary via-secondary to-logo-teal py-16 px-4 flex flex-col items-center">

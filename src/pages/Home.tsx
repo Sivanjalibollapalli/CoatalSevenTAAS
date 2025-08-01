@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Users, Trophy, Zap, ChevronDown } from 'lucide-react';
+import { ArrowRight, Code, Users, Trophy, Zap, ChevronDown, Clock, Target, Award, CheckCircle, Star, Users2, Calendar, BookOpen, Lightbulb, Rocket, TrendingUp, Globe, Shield } from 'lucide-react';
 import aiMLImg from '../assets/AI&ML.png';
 import quantumImg from '../assets/Quantum computing.png';
 import automationImg from '../assets/Automation testing.png';
@@ -21,29 +21,6 @@ const Home = () => {
       }
     }
   };
-
-  const features = [
-    {
-      icon: Code,
-      title: 'Cutting-Edge Technology',
-      description: 'Work with the latest technologies and frameworks in real-world projects.'
-    },
-    {
-      icon: Users,
-      title: 'Expert Mentorship',
-      description: 'Learn from industry professionals with years of experience.'
-    },
-    {
-      icon: Trophy,
-      title: 'Portfolio Projects',
-      description: 'Build impressive projects that showcase your skills to employers.'
-    },
-    {
-      icon: Zap,
-      title: 'Fast-Track Career',
-      description: 'Accelerate your career growth with our proven methodology.'
-    }
-  ];
 
   return (
     <motion.div
@@ -102,169 +79,339 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={fadeInUp}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            >
-              About Coastal Seven
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-            >
-              We are a forward-thinking technology company dedicated to bridging the gap between 
-              academic learning and industry requirements. Our comprehensive internship programs 
-              and live project experiences prepare students for successful careers in technology.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="text-center p-6 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4">
-                  <feature.icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Technologies Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-secondary to-logo-teal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* TaaS Program Section - Compact */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-8 border border-white/20 relative overflow-hidden"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+            <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              Transform Your Future with Our TaaS Program
+            </motion.h2>
+
+            <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6"
+            >
+              Experience the future of professional development through our innovative Talent-as-a-Service program that combines cutting-edge technology training with real-world project experience.
+            </motion.p>
+
+            <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-xl md:text-2xl font-bold text-gray-900 mb-4"
+            >
+              Accelerate Your Career with Industry Excellence
+            </motion.h3>
+
+            <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="text-base text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            >
+              Our revolutionary Talent-as-a-Service approach transforms aspiring professionals into industry-ready experts through intensive training, hands-on projects, and performance-driven selection.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Technologies Section - Compact */}
+      <section className="py-16 bg-gradient-to-br from-primary via-secondary to-logo-teal">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
               Technologies We Use
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Our internship programs immerse you in the most in-demand and futuristic technologies, preparing you for tomorrow's tech landscape.
+            <p className="text-lg text-blue-100 max-w-3xl mx-auto">
+              Our internship programs immerse you in the most in-demand and futuristic technologies.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* AI & ML */}
             <Link to="/technologies/ai-ml">
               <motion.div
-                whileHover={{ scale: 1.08 }}
-                className="bg-white/10 rounded-2xl shadow-xl p-8 flex flex-col items-center justify-between min-h-[24rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                className="bg-white/10 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between min-h-[20rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
               >
-                <img src={aiMLImg} alt="AI & ML" loading="lazy" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-lg border-4 border-blue-400 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-3xl font-bold text-white mb-0">AI & ML</h3>
+                <img src={aiMLImg} alt="AI & ML" loading="lazy" className="w-32 h-32 object-cover rounded-xl mb-4 shadow-lg border-4 border-blue-400 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white mb-0">AI & ML</h3>
               </motion.div>
             </Link>
             {/* Quantum Computing */}
             <Link to="/technologies/quantum-computing">
               <motion.div
-                whileHover={{ scale: 1.08 }}
-                className="bg-white/10 rounded-2xl shadow-xl p-8 flex flex-col items-center justify-between min-h-[24rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                className="bg-white/10 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between min-h-[20rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
               >
-                <img src={quantumImg} alt="Quantum Computing" loading="lazy" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-lg border-4 border-purple-400 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-3xl font-bold text-white mb-0">Quantum Computing</h3>
+                <img src={quantumImg} alt="Quantum Computing" loading="lazy" className="w-32 h-32 object-cover rounded-xl mb-4 shadow-lg border-4 border-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white mb-0">Quantum Computing</h3>
               </motion.div>
             </Link>
             {/* Automation Testing */}
             <Link to="/technologies/automation-testing">
               <motion.div
-                whileHover={{ scale: 1.08 }}
-                className="bg-white/10 rounded-2xl shadow-xl p-8 flex flex-col items-center justify-between min-h-[24rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                className="bg-white/10 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between min-h-[20rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
               >
-                <img src={automationImg} alt="Automation Testing" loading="lazy" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-lg border-4 border-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-3xl font-bold text-white mb-0">Automation Testing</h3>
+                <img src={automationImg} alt="Automation Testing" loading="lazy" className="w-32 h-32 object-cover rounded-xl mb-4 shadow-lg border-4 border-green-400 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white mb-0">Automation Testing</h3>
               </motion.div>
             </Link>
             {/* Full Stack */}
             <Link to="/technologies/full-stack-development">
               <motion.div
-                whileHover={{ scale: 1.08 }}
-                className="bg-white/10 rounded-2xl shadow-xl p-8 flex flex-col items-center justify-between min-h-[24rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                className="bg-white/10 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between min-h-[20rem] group transition-all duration-300 hover:bg-white/20 cursor-pointer"
               >
-                <img src={fullStackImg} alt="Full Stack Development" loading="lazy" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-lg border-4 border-orange-400 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-3xl font-bold text-white mb-0">Full Stack Development</h3>
+                <img src={fullStackImg} alt="Full Stack Development" loading="lazy" className="w-32 h-32 object-cover rounded-xl mb-4 shadow-lg border-4 border-orange-400 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-bold text-white mb-0">Full Stack Development</h3>
               </motion.div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* AI Agents Section */}
-      <section className="py-24 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* AI Agents Section - Compact */}
+      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Meet Our AI Testing Agents
+            Future Landscape of Agentic SDLC
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12"
+            className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-8"
           >
-            Accelerate quality assurance with seven specialised, autonomous agents built for every testing need.
+            All our in-house agents - Project Managers to orchestrate multiple agents and integrate into SDLC Journey with enhanced timeline and quality of work.
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: 'Testaraptor', subtitle: 'Manual Tester', icon: '🔍', color: 'bg-gray-800', textColor: 'text-white', description: 'Expert in exploratory and manual testing. Ensures your app works as intended, catching issues early.' },
-              { name: 'Scriptodon', subtitle: 'Automation Script Generator', icon: '📝', color: 'bg-blue-900', textColor: 'text-white', description: 'Automatically creates robust test scripts. Accelerates automation and reduces manual effort.' },
-              { name: 'Bugzilla Rex', subtitle: 'Bug Reports Agent', icon: '🐞', color: 'bg-red-900', textColor: 'text-white', description: 'Finds, logs, and tracks bugs efficiently. Keeps your project on track with clear, actionable reports.' },
-              { name: 'Swaggosaur', subtitle: 'Swagger → Test Case Agent', icon: '📄', color: 'bg-teal-900', textColor: 'text-white', description: 'Converts Swagger API specs into test cases. Bridges the gap between documentation and testing.' },
-              { name: 'Restaceratops', subtitle: 'API Tester', icon: '🔗', color: 'bg-indigo-900', textColor: 'text-white', description: 'Performs deep API testing for reliability. Validates endpoints, responses, and integrations.' },
-              { name: 'Loadosaurus', subtitle: 'Performance Tester', icon: '🚀', color: 'bg-yellow-900', textColor: 'text-white', description: 'Simulates heavy loads and stress tests. Ensures your app performs under pressure.' },
-              { name: 'Thinkodactyl', subtitle: 'LLM Test Advisor', icon: '💡', color: 'bg-purple-900', textColor: 'text-white', description: 'Provides AI-driven test strategies and advice. Leverages LLMs for smarter, adaptive testing.' },
-            ].map((agent, idx) => (
+          {/* SDLC Process Flow - Compact */}
               <motion.div
-                key={agent.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className={`${agent.color} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center`}
-              >
-                <div className="text-5xl mb-4">{agent.icon}</div>
-                <h3 className={`text-xl font-bold mb-1 ${agent.textColor}`}>{agent.name}</h3>
-                <p className={`font-medium mb-2 ${agent.textColor}`}>{agent.subtitle}</p>
-                <p className={`text-base mt-2 ${agent.textColor}`}>{agent.description}</p>
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-8"
+          >
+            {/* Process Flow Header */}
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex items-center space-x-4 md:space-x-6">
+                <div className="flex items-center">
+                  <div className="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <span className="text-sm">📋</span>
+                  </div>
+                  <span className="text-base font-semibold text-gray-900">Define</span>
+                </div>
+                <div className="w-6 h-0.5 bg-gray-300"></div>
+                <div className="flex items-center">
+                  <div className="bg-green-100 text-green-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <span className="text-sm">🎨</span>
+                  </div>
+                  <span className="text-base font-semibold text-gray-900">Design</span>
+                </div>
+                <div className="w-6 h-0.5 bg-gray-300"></div>
+                <div className="flex items-center">
+                  <div className="bg-purple-100 text-purple-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <span className="text-sm">💻</span>
+                  </div>
+                  <span className="text-base font-semibold text-gray-900">Develop</span>
+                </div>
+                <div className="w-6 h-0.5 bg-gray-300"></div>
+                <div className="flex items-center">
+                  <div className="bg-orange-100 text-orange-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <span className="text-sm">🧪</span>
+                  </div>
+                  <span className="text-base font-semibold text-gray-900">Test</span>
+                </div>
+                <div className="w-6 h-0.5 bg-gray-300"></div>
+                <div className="flex items-center">
+                  <div className="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                    <span className="text-sm">🚀</span>
+                  </div>
+                  <span className="text-base font-semibold text-gray-900">Deploy</span>
+                </div>
+              </div>
+            </div>
+
+            {/* SDLC Phases Grid - Compact */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-8">
+              {/* Define Phase */}
+              <div className="bg-white rounded-lg shadow-md p-3 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+                <div className="text-center mb-3">
+                  <div className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center mx-auto mb-1">
+                    <span className="text-xs">📋</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">Define</h3>
+                  <p className="text-xs text-gray-600 mb-2">Requirements & Planning</p>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-start space-x-1 p-1 bg-blue-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Draft Business Requirement Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-blue-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">User Story Creation Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-blue-50 rounded text-xs">
+                    <span className="text-xs">📝</span>
+                    <span className="text-xs text-gray-700">Requirements Analysis</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Design Phase */}
+              <div className="bg-white rounded-lg shadow-md p-3 border-l-4 border-green-500 hover:shadow-lg transition-all duration-300">
+                <div className="text-center mb-3">
+                  <div className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center mx-auto mb-1">
+                    <span className="text-xs">🎨</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">Design</h3>
+                  <p className="text-xs text-gray-600 mb-2">Architecture & UI/UX</p>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-start space-x-1 p-1 bg-green-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">UI/UX Design Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-green-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Architecture Design Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-green-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Impact Analysis Agent</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Develop Phase */}
+              <div className="bg-white rounded-lg shadow-md p-3 border-l-4 border-purple-500 hover:shadow-lg transition-all duration-300">
+                <div className="text-center mb-3">
+                  <div className="bg-purple-100 text-purple-600 rounded-full w-6 h-6 flex items-center justify-center mx-auto mb-1">
+                    <span className="text-xs">💻</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">Develop</h3>
+                  <p className="text-xs text-gray-600 mb-2">Coding & Implementation</p>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-start space-x-1 p-1 bg-purple-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Coding Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-purple-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Unit Test Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-purple-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Code Review Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-purple-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Code Scanning Agent</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Test Phase */}
+              <div className="bg-white rounded-lg shadow-md p-3 border-l-4 border-orange-500 hover:shadow-lg transition-all duration-300">
+                <div className="text-center mb-3">
+                  <div className="bg-orange-100 text-orange-600 rounded-full w-6 h-6 flex items-center justify-center mx-auto mb-1">
+                    <span className="text-xs">🧪</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">Test</h3>
+                  <p className="text-xs text-gray-600 mb-2">Quality Assurance</p>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Test Case Creation Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Test Script Generation Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Test Execution Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Test Report Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">LLM Test Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Swagger Test Case Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-orange-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">API Test Agent</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Deploy Phase */}
+              <div className="bg-white rounded-lg shadow-md p-3 border-l-4 border-red-500 hover:shadow-lg transition-all duration-300">
+                <div className="text-center mb-3">
+                  <div className="bg-red-100 text-red-600 rounded-full w-6 h-6 flex items-center justify-center mx-auto mb-1">
+                    <span className="text-xs">🚀</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">Deploy</h3>
+                  <p className="text-xs text-gray-600 mb-2">Production & Release</p>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex items-start space-x-1 p-1 bg-red-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Deployment Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-red-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Change Request Agent</span>
+                  </div>
+                  <div className="flex items-start space-x-1 p-1 bg-red-50 rounded text-xs">
+                    <span className="text-xs">🤖</span>
+                    <span className="text-xs text-gray-700">Monitoring Agent</span>
+                  </div>
+                </div>
+              </div>
+            </div>
               </motion.div>
-            ))}
-          </div>
         </div>
       </section>
     </motion.div>

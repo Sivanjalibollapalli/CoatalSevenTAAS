@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Logos Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .logo-container {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        canvas {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Partner Logos Generator</h1>
+    <p>Right-click on each logo and select "Save image as..." to save the logo files.</p>
+    
+    <!-- HSBC Logo -->
+    <div class="logo-container">
+        <canvas id="hsbc-logo" width="200" height="120"></canvas>
+        <h3>HSBC Logo</h3>
+    </div>
+
+    <!-- Infosys Logo -->
+    <div class="logo-container">
+        <canvas id="infosys-logo" width="200" height="120"></canvas>
+        <h3>Infosys Logo</h3>
+    </div>
+
+    <!-- IBM Logo -->
+    <div class="logo-container">
+        <canvas id="ibm-logo" width="200" height="120"></canvas>
+        <h3>IBM Logo</h3>
+    </div>
+
+    <!-- Capgemini Logo -->
+    <div class="logo-container">
+        <canvas id="capgemini-logo" width="200" height="120"></canvas>
+        <h3>Capgemini Logo</h3>
+    </div>
+
+    <!-- Cognizant Logo -->
+    <div class="logo-container">
+        <canvas id="cognizant-logo" width="200" height="120"></canvas>
+        <h3>Cognizant Logo</h3>
+    </div>
+
+    <script>
+        // HSBC Logo
+        const hsbcCanvas = document.getElementById('hsbc-logo');
+        const hsbcCtx = hsbcCanvas.getContext('2d');
+        
+        // Create gradient
+        const hsbcGradient = hsbcCtx.createLinearGradient(0, 0, 200, 120);
+        hsbcGradient.addColorStop(0, '#DB0011');
+        hsbcGradient.addColorStop(1, '#A7000D');
+        
+        // Draw hexagon
+        hsbcCtx.fillStyle = hsbcGradient;
+        hsbcCtx.beginPath();
+        hsbcCtx.moveTo(100, 20);
+        hsbcCtx.lineTo(150, 40);
+        hsbcCtx.lineTo(150, 80);
+        hsbcCtx.lineTo(100, 100);
+        hsbcCtx.lineTo(50, 80);
+        hsbcCtx.lineTo(50, 40);
+        hsbcCtx.closePath();
+        hsbcCtx.fill();
+        
+        // Draw white inner hexagon
+        hsbcCtx.fillStyle = 'white';
+        hsbcCtx.beginPath();
+        hsbcCtx.moveTo(100, 30);
+        hsbcCtx.lineTo(130, 40);
+        hsbcCtx.lineTo(130, 70);
+        hsbcCtx.lineTo(100, 80);
+        hsbcCtx.lineTo(70, 70);
+        hsbcCtx.lineTo(70, 40);
+        hsbcCtx.closePath();
+        hsbcCtx.fill();
+        
+        // Add HSBC text
+        hsbcCtx.fillStyle = 'black';
+        hsbcCtx.font = 'bold 16px Arial';
+        hsbcCtx.textAlign = 'center';
+        hsbcCtx.fillText('HSBC', 100, 95);
+
+        // Infosys Logo
+        const infosysCanvas = document.getElementById('infosys-logo');
+        const infosysCtx = infosysCanvas.getContext('2d');
+        
+        infosysCtx.fillStyle = '#0066CC';
+        infosysCtx.font = 'bold 24px Arial';
+        infosysCtx.textAlign = 'center';
+        infosysCtx.fillText('Infosys', 100, 60);
+        
+        // Add registered trademark
+        infosysCtx.font = '12px Arial';
+        infosysCtx.fillText('®', 160, 30);
+
+        // IBM Logo
+        const ibmCanvas = document.getElementById('ibm-logo');
+        const ibmCtx = ibmCanvas.getContext('2d');
+        
+        ibmCtx.fillStyle = '#006699';
+        for (let i = 0; i < 10; i++) {
+            ibmCtx.fillRect(20 + i * 16, 20, 8, 80);
+        }
+        
+        // Add IBM text
+        ibmCtx.fillStyle = '#006699';
+        ibmCtx.font = 'bold 16px Arial';
+        ibmCtx.textAlign = 'center';
+        ibmCtx.fillText('IBM', 100, 110);
+
+        // Capgemini Logo
+        const capgeminiCanvas = document.getElementById('capgemini-logo');
+        const capgeminiCtx = capgeminiCanvas.getContext('2d');
+        
+        // Draw diamond
+        capgeminiCtx.fillStyle = '#0066CC';
+        capgeminiCtx.beginPath();
+        capgeminiCtx.moveTo(100, 30);
+        capgeminiCtx.lineTo(140, 60);
+        capgeminiCtx.lineTo(100, 90);
+        capgeminiCtx.lineTo(60, 60);
+        capgeminiCtx.closePath();
+        capgeminiCtx.fill();
+        
+        // Draw white rectangle in center
+        capgeminiCtx.fillStyle = 'white';
+        capgeminiCtx.fillRect(80, 50, 40, 20);
+
+        // Cognizant Logo
+        const cognizantCanvas = document.getElementById('cognizant-logo');
+        const cognizantCtx = cognizantCanvas.getContext('2d');
+        
+        cognizantCtx.fillStyle = '#0066CC';
+        cognizantCtx.font = 'bold 20px Arial';
+        cognizantCtx.textAlign = 'center';
+        cognizantCtx.fillText('Cognizant', 100, 60);
+        
+        // Add blue dot
+        cognizantCtx.beginPath();
+        cognizantCtx.arc(160, 30, 4, 0, 2 * Math.PI);
+        cognizantCtx.fill();
+    </script>
+</body>
+</html> 

@@ -20,6 +20,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
+    { name: 'AI Agents', path: '/agents' },
     { name: 'Stories', path: '/stories' },
     { name: 'About', path: '/about' },
     { name: 'Careers', path: '/careers' },

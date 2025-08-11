@@ -42,24 +42,26 @@ const BugzillaRex = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-lg text-accent mb-8"
+                className="text-lg text-white mb-8"
               >
-                Automatically assigns tickets to teams using AI classification. Analyzes ticket content 
-                and routes to the right team member across Jira, Trello, and Asana platforms.
+                AI-powered ticket assignment with intelligent classification. Routes tickets to the right 
+                team member across Jira, Trello, and Asana platforms through smart analysis.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-wrap gap-4"
+                className="flex justify-center"
               >
-                <button className="bg-white text-accent px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-accent/10 transition-colors">
-                  <Play className="h-5 w-5 mr-2" />
-                  Assign Ticket
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-accent transition-colors">
-                  View Assignments
-                </button>
+                <a 
+                  href="https://bugzilla-ruddy.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-accent hover:bg-logo-teal text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <Play className="h-6 w-6 mr-3" />
+                  Bugzilla Demo
+                </a>
               </motion.div>
             </div>
             
@@ -284,44 +286,7 @@ const BugzillaRex = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-accent to-logo-teal text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Automate Ticket Assignment with Bugzilla Rex?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-accent mb-8"
-          >
-            Start automating your ticket triage with AI-powered assignment intelligence.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-accent px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-accent/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Start Auto Assignment
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-accent transition-colors">
-              View Analytics
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

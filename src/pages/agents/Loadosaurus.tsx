@@ -53,13 +53,15 @@ const Loadosaurus = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-wrap gap-4"
               >
-                <button className="bg-white text-primary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-primary/10 transition-colors">
+                <a 
+                  href="https://projectludo.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-primary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-primary/10 hover:text-primary hover:shadow-lg transition-all duration-300 border-2 border-primary/20"
+                >
                   <Play className="h-5 w-5 mr-2" />
-                  Start Load Test
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
-                  View Reports
-                </button>
+                  Test Loadosaurus
+                </a>
               </motion.div>
             </div>
             
@@ -284,44 +286,7 @@ const Loadosaurus = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Test Performance with Loadosaurus?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-primary/80 mb-8"
-          >
-            Start validating your AI system's performance with JMeter-powered load testing.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-primary px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-primary/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Start Performance Testing
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
-              View Test Reports
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

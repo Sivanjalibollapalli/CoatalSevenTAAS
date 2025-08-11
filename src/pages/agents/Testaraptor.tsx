@@ -47,20 +47,22 @@ const Testaraptor = () => {
                 Prompt-based testing with AI understanding. Tests response accuracy, fallback handling, 
                 and conversational flows through intelligent prompt analysis.
               </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-wrap gap-4"
-              >
-                <button className="bg-white text-primary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-primary/10 transition-colors">
-                  <Play className="h-5 w-5 mr-2" />
-                  Test Prompt
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-                  View Results
-                </button>
-              </motion.div>
+                             <motion.div
+                 initial={{ opacity: 0, y: 30 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 0.6, duration: 0.6 }}
+                 className="flex flex-wrap gap-4"
+               >
+                 <a 
+                   href="https://manustarter.vercel.app/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="bg-white text-primary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-primary/10 transition-colors"
+                 >
+                   <Play className="h-5 w-5 mr-2" />
+                   Launch Testaraptor
+                 </a>
+               </motion.div>
             </div>
             
             <div className="flex justify-center">
@@ -284,44 +286,7 @@ const Testaraptor = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Test Your AI Agent with Testaraptor?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-gray-300 mb-8"
-          >
-            Start validating your AI agent's conversational capabilities with structured testing.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-primary px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-primary/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Start Prompt Testing
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-              View Test Results
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

@@ -47,20 +47,22 @@ const Scriptodon = () => {
                 Generates Python scripts from Swagger, Jira, Figma inputs. Creates Playwright/Selenium 
                 automation with no-code dashboard and comprehensive reporting.
               </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-wrap gap-4"
-              >
-                <button className="bg-white text-secondary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-secondary/10 transition-colors">
-                  <Play className="h-5 w-5 mr-2" />
-                  Generate Script
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors">
-                  View Dashboard
-                </button>
-              </motion.div>
+                             <motion.div
+                 initial={{ opacity: 0, y: 30 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 0.6, duration: 0.6 }}
+                 className="flex flex-wrap gap-4"
+               >
+                                   <a 
+                    href="http://13.232.134.97:3000/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-secondary px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    <Play className="h-5 w-5 mr-2" />
+                    Test Scriptodon
+                  </a>
+               </motion.div>
             </div>
             
             <div className="flex justify-center">
@@ -284,44 +286,7 @@ const Scriptodon = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-secondary to-accent text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Generate Automation Scripts with Scriptodon?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-blue-200 mb-8"
-          >
-            Start automating your testing with AI-powered script generation.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-secondary px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-secondary/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Generate Automation Scripts
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors">
-              View Dashboard
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

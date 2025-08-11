@@ -243,6 +243,58 @@ const AIAgents = () => {
           </div>
         </div>
       </section>
+
+      {/* Recruitment Portal Section */}
+      <section className="py-20 bg-gradient-to-br from-primary via-secondary to-logo-teal">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               Career Excellence
+             </h2>
+             <p className="text-xl text-white/90 max-w-3xl mx-auto">
+               Join our team of experts working with cutting-edge AI technologies. 
+               Discover rewarding career opportunities at Coastal Seven.
+             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
+          >
+            <div className="max-w-2xl mx-auto">
+                             <h3 className="text-2xl font-bold text-white mb-4">
+                 Talent Hub
+               </h3>
+               <p className="text-lg text-white/90 mb-8">
+                 Access our comprehensive professional platform to explore career opportunities 
+                 in AI, software development, testing, and emerging technologies.
+               </p>
+                                            <div className="flex justify-center">
+                 <a
+                   href="http://13.204.47.60/login"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 shadow-xl border-2 border-transparent hover:border-white"
+                 >
+                   <svg className="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                   </svg>
+                   Join Us
+                 </a>
+               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </motion.div>
   );
 };

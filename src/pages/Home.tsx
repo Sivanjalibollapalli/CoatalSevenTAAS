@@ -193,10 +193,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* AI Agents Section */}
-      <section className="py-24 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-        </section>
     </motion.div>
   );
 };

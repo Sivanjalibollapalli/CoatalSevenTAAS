@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Play, FileText, Code, Database, Zap } from 'lucide-react';
 
 const Swaggosaur = () => {
+  const handleTestSwaggosaurClick = () => {
+    // Open the Swaggosaur test link
+    window.open('https://kingdom-w4ds.vercel.app/', '_blank');
+  };
+
   return (
     <motion.div
       initial="initial"
@@ -53,12 +58,12 @@ const Swaggosaur = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-wrap gap-4"
               >
-                <button className="bg-white text-logo-teal px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-logo-teal/10 transition-colors">
+                <button 
+                  onClick={handleTestSwaggosaurClick}
+                  className="bg-white text-logo-teal px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-logo-teal/10 hover:text-logo-teal hover:shadow-lg transition-all duration-300 border-2 border-logo-teal/20"
+                >
                   <Play className="h-5 w-5 mr-2" />
-                  Generate Tests
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-logo-teal transition-colors">
-                  View Documentation
+                  Test Swaggosaur
                 </button>
               </motion.div>
             </div>
@@ -284,44 +289,7 @@ const Swaggosaur = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-logo-teal to-accent text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Generate API Tests with Swaggosaur?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-logo-teal mb-8"
-          >
-            Start automating your API testing with AI-powered test generation.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-logo-teal px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-logo-teal/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Generate API Tests
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-logo-teal transition-colors">
-              View Documentation
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

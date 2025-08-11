@@ -42,7 +42,7 @@ const Restaceratops = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-lg text-indigo-200 mb-8"
+                className="text-lg text-white mb-8"
               >
                 Performs deep API testing for reliability. Validates endpoints, responses, 
                 and integrations with comprehensive testing strategies.
@@ -53,13 +53,15 @@ const Restaceratops = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-wrap gap-4"
               >
-                <button className="bg-white text-logo-dark px-6 py-3 rounded-lg font-semibold flex items-center hover:bg-logo-dark/10 transition-colors">
-                  <Play className="h-5 w-5 mr-2" />
-                  Test API
-                </button>
-                <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-900 transition-colors">
-                  View Results
-                </button>
+                <a 
+                  href="http://13.200.242.64/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-accent hover:bg-logo-teal text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <Globe className="h-6 w-6 mr-3" />
+                  Test Restaceratops
+                </a>
               </motion.div>
             </div>
             
@@ -284,44 +286,7 @@ const Restaceratops = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-logo-dark to-primary text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
-            Ready to Test APIs with Restaceratops?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl text-indigo-200 mb-8"
-          >
-            Start automating your API testing with AI-powered intelligence.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="bg-white text-logo-dark px-8 py-4 rounded-lg font-semibold flex items-center justify-center hover:bg-logo-dark/10 transition-colors">
-              <Play className="h-5 w-5 mr-2" />
-              Start API Testing
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-indigo-900 transition-colors">
-              View Results
-            </button>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };

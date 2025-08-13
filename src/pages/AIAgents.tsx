@@ -395,15 +395,46 @@ const AIAgents = () => {
                            style={{ pointerEvents: 'none' }}
                          />
                          
-                         {/* "Delivered to Client" text */}
+                         {/* "Delivered to Client" text with enhanced styling */}
                          <text
-                           x={endX + 20}
-                           y={endY - 10}
+                           x={endX + 25}
+                           y={endY - 15}
                            fill="#14B8A6"
-                           fontSize="14"
+                           fontSize="16"
                            fontWeight="bold"
                            textAnchor="start"
+                           style={{ 
+                             pointerEvents: 'none',
+                             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                           }}
+                         >
+                           Delivered to Client
+                         </text>
+                         
+                         {/* Background highlight for better visibility */}
+                         <rect
+                           x={endX + 15}
+                           y={endY - 30}
+                           width="180"
+                           height="25"
+                           fill="rgba(255,255,255,0.9)"
+                           rx="5"
                            style={{ pointerEvents: 'none' }}
+                         />
+                         
+                         {/* Text on top of background */}
+                         <text
+                           x={endX + 25}
+                           y={endY - 15}
+                           fill="#14B8A6"
+                           fontSize="16"
+                           fontWeight="bold"
+                           textAnchor="start"
+                           style={{ 
+                             pointerEvents: 'none',
+                             filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.2))'
+                           }}
                          >
                            Delivered to Client
                          </text>

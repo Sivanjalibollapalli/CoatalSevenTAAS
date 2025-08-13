@@ -241,8 +241,8 @@ const AIAgents = () => {
 
                {/* Curved Arrows SVG - Above the circles */}
                <svg className="absolute inset-0 w-full h-full z-20" viewBox="0 0 800 800" style={{ pointerEvents: 'none' }}>
-                 {/* Curved arrows connecting each phase */}
-                 {[0, 1, 2, 3, 4, 5].map((index) => {
+                 {/* Curved arrows connecting each phase (excluding the loop from Deploy to Analyze) */}
+                 {[0, 1, 2, 3, 4].map((index) => {
                    const startAngle = (index * 60 - 90) * Math.PI / 180;
                    const endAngle = ((index + 1) * 60 - 90) * Math.PI / 180;
                    const radius = 280;
@@ -327,6 +327,90 @@ const AIAgents = () => {
                      </g>
                    );
                  })}
+                 
+                 {/* Delivery Arrow from Deploy to Client */}
+                 <g>
+                   {/* Calculate Deploy phase position (index 5, angle 210 degrees) */}
+                   {(() => {
+                     const deployAngle = (5 * 60 - 90) * Math.PI / 180; // 210 degrees
+                     const radius = 280;
+                     const arrowRadius = radius + 30;
+                     
+                     // Start point (on the Deploy circle)
+                     const startX = 400 + arrowRadius * Math.cos(deployAngle);
+                     const startY = 400 + arrowRadius * Math.sin(deployAngle);
+                     
+                     // End point (outward direction)
+                     const endX = 400 + (arrowRadius + 80) * Math.cos(deployAngle);
+                     const endY = 400 + (arrowRadius + 80) * Math.sin(deployAngle);
+                     
+                     // Arrowhead calculations
+                     const arrowAngle = deployAngle;
+                     const arrowheadLength = 20;
+                     const arrowheadAngle1 = arrowAngle - Math.PI / 6;
+                     const arrowheadAngle2 = arrowAngle + Math.PI / 6;
+                     
+                     const arrowheadX1 = endX - arrowheadLength * Math.cos(arrowheadAngle1);
+                     const arrowheadY1 = endY - arrowheadLength * Math.sin(arrowheadAngle1);
+                     const arrowheadX2 = endX - arrowheadLength * Math.cos(arrowheadAngle2);
+                     const arrowheadY2 = endY - arrowheadLength * Math.sin(arrowheadAngle2);
+                     
+                     return (
+                       <>
+                         {/* Main delivery arrow */}
+                         <path
+                           d={`M ${startX} ${startY} L ${endX} ${endY}`}
+                           fill="none"
+                           stroke="#14B8A6"
+                           strokeWidth="4"
+                           strokeLinecap="round"
+                           style={{ pointerEvents: 'none' }}
+                         />
+                         
+                         {/* Arrowhead */}
+                         <path
+                           d={`M ${endX} ${endY} L ${arrowheadX1} ${arrowheadY1} M ${endX} ${endY} L ${arrowheadX2} ${arrowheadY2}`}
+                           fill="none"
+                           stroke="#14B8A6"
+                           strokeWidth="6"
+                           strokeLinecap="round"
+                           style={{ pointerEvents: 'none' }}
+                         />
+                         
+                         {/* Arrowhead fill */}
+                         <path
+                           d={`M ${endX} ${endY} L ${arrowheadX1} ${arrowheadY1} L ${arrowheadX2} ${arrowheadY2} Z`}
+                           fill="#14B8A6"
+                           style={{ pointerEvents: 'none' }}
+                         />
+                         
+                         {/* Glow effect */}
+                         <path
+                           d={`M ${startX} ${startY} L ${endX} ${endY}`}
+                           fill="none"
+                           stroke="#14B8A6"
+                           strokeWidth="8"
+                           strokeOpacity="0.3"
+                           strokeLinecap="round"
+                           style={{ pointerEvents: 'none' }}
+                         />
+                         
+                         {/* "Delivered to Client" text */}
+                         <text
+                           x={endX + 20}
+                           y={endY - 10}
+                           fill="#14B8A6"
+                           fontSize="14"
+                           fontWeight="bold"
+                           textAnchor="start"
+                           style={{ pointerEvents: 'none' }}
+                         >
+                           Delivered to Client
+                         </text>
+                       </>
+                     );
+                   })()}
+                 </g>
                </svg>
 
                {/* Phase Circles */}

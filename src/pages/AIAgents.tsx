@@ -1,78 +1,102 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const AIAgents = () => {
-  const agents = [
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const sdlcPhases = [
     {
-      name: 'Testaraptor',
-      subtitle: 'Manual Testing Expert',
-      description: 'Prompt-based testing with AI understanding. Tests response accuracy, fallback handling, and conversational flows.',
-      color: 'bg-primary/20',
+      id: 'analyze',
+      name: 'Planning & Requirement Analysis',
+      description: 'Define project scope, set objectives, and plan resources',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-primary',
-      image: '/src/assets/agents/testaraptor.png',
-      path: '/agents/testaraptor'
+      borderColor: 'border-gray-400',
+      stage: 'Analyze',
+      activities: [
+        'ProjectScope Agent - Project Planning',
+        'ObjectiveSet Agent - Goal Definition',
+        'ResourcePlan Agent - Resource Allocation',
+        'TimelineAgent - Schedule Management'
+      ]
     },
     {
-      name: 'Scriptodon',
-      subtitle: 'Automation Script Generator',
-      description: 'Generates Python scripts from Swagger, Jira, Figma inputs. Creates Playwright/Selenium automation with no-code dashboard.',
-      color: 'bg-secondary/20',
+      id: 'specify',
+      name: 'Defining Requirements',
+      description: 'Gather and document functional and technical requirements',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-secondary',
-      image: '/src/assets/agents/scriptodon.png',
-      path: '/agents/scriptodon'
+      borderColor: 'border-gray-400',
+      stage: 'Specify',
+      activities: [
+        'RequirementGatherer Agent - Functional Requirements',
+        'TechSpec Agent - Technical Requirements',
+        'StakeholderAgent - Requirement Validation',
+        'DocumentAgent - Requirement Documentation'
+      ]
     },
     {
-      name: 'Bugzilla Rex',
-      subtitle: 'AI Ticket Assignment Agent',
-      description: 'Automatically assigns tickets to teams using AI classification. Works with Jira, Trello, Asana platforms.',
-      color: 'bg-accent/20',
+      id: 'architect',
+      name: 'Design',
+      description: 'Create high-level and low-level design specifications',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-accent',
-      image: '/src/assets/agents/bugzilla-rex.png',
-      path: '/agents/bugzilla-rex'
+      borderColor: 'border-gray-400',
+      stage: 'Architect',
+      activities: [
+        'HLDDesigner Agent - High-Level Design',
+        'LLDArchitect Agent - Low-Level Design',
+        'SystemArchitect Agent - System Architecture',
+        'UIFlowAgent - UI/UX Design'
+      ]
     },
     {
-      name: 'Swaggosaur',
-      subtitle: 'Swagger → Test Case Agent',
-      description: 'Upload Swagger/OpenAPI files, auto-generate test cases, run against live APIs, output comprehensive reports.',
-      color: 'bg-logo-teal/20',
+      id: 'implement',
+      name: 'Development',
+      description: 'Build scalable code following coding standards and version control',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-logo-teal',
-      image: '/src/assets/agents/swaggosaur.png',
-      path: '/agents/swaggosaur'
+      borderColor: 'border-gray-400',
+      stage: 'Implement',
+      activities: [
+        'CodeGenerator Agent - Code Development',
+        'CodeReviewer Agent - Code Review',
+        'VersionControl Agent - Git Management',
+        'QualityChecker Agent - Code Quality'
+      ]
     },
     {
-      name: 'Restaceratops',
-      subtitle: 'AI-Powered API Tester',
-      description: 'AI chat interface, authentication support, multiple report formats. Comprehensive API testing with intelligent analysis.',
-      color: 'bg-logo-dark/20',
+      id: 'testing',
+      name: 'Testing',
+      description: 'Comprehensive testing with 7 specialized AI-powered agents',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-logo-dark',
-      image: '/src/assets/agents/restaceratops.png',
-      path: '/agents/restaceratops'
+      borderColor: 'border-gray-400',
+      stage: 'Validate',
+      activities: [
+        'Testaraptor - Manual',
+        'Restaceratops - API',
+        'Scriptodon - Automation',
+        'Loadosaurus - Performance',
+        'Swaggosaur - Documentation',
+        'Thinkodactyl - LLM',
+        'Bugzilla'
+      ]
     },
     {
-      name: 'Loadosaurus',
-      subtitle: 'JMeter Performance Tester',
-      description: 'Load, Stress, Spike, and Soak testing with JMeter. Measures TPS, latency, error rates for AI systems.',
-      color: 'bg-primary/20',
+      id: 'deploy',
+      name: 'Deployment & Maintenance',
+      description: 'Release planning, deployment automation, and ongoing maintenance',
+      color: 'bg-white',
       textColor: 'text-gray-900',
-      borderColor: 'border-primary',
-      image: '/src/assets/agents/loadosaurus.png',
-      path: '/agents/loadosaurus'
-    },
-    {
-      name: 'Thinkodactyl',
-      subtitle: 'LLM Test Advisor',
-      description: 'Provides AI-driven test strategies and advice. Leverages LLMs for smarter, adaptive testing with intelligent recommendations.',
-      color: 'bg-secondary/20',
-      textColor: 'text-gray-900',
-      borderColor: 'border-secondary',
-      image: '/src/assets/agents/thinkodactyl.png',
-      path: '/agents/thinkodactyl'
+      borderColor: 'border-gray-400',
+      stage: 'Deploy',
+      activities: [
+        'DeployMaster Agent - Deployment Automation',
+        'ReleaseManager Agent - Release Planning',
+        'MonitorAgent - System Monitoring',
+        'MaintenanceAgent - Ongoing Maintenance'
+      ]
     }
   ];
 
@@ -84,168 +108,304 @@ const AIAgents = () => {
     >
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary via-secondary to-logo-teal text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-left"
+            >
           <motion.h1
-            initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
             className="text-5xl md:text-6xl font-bold mb-6 text-white"
           >
-            Meet Our AI Testing Agents
+                Agentic Software<br />
+                Development Life Cycle
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl md:text-2xl text-white mb-8"
           >
-            Seven specialized, autonomous agents built for every testing need. 
-            Accelerate quality assurance with cutting-edge AI technology.
+            Revolutionizing software development with AI-powered agents across every phase of the SDLC
           </motion.p>
+            </motion.div>
+
+            {/* Right Side - req.png Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="flex flex-col items-center"
+            >
+              <div className="relative w-96 h-96 mb-6">
+                <img 
+                  src="/src/assets/req.png" 
+                  alt="Agentic SDLC Process"
+                  className="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white/30"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+              
+              {/* File Upload Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="flex flex-col items-center"
+              >
+                <label 
+                  htmlFor="requirement-upload" 
+                  className="bg-white/20 backdrop-blur-sm border-2 border-white/30 rounded-lg px-6 py-3 cursor-pointer hover:bg-white/30 transition-all duration-300 group flex items-center space-x-2"
+                >
+                  <svg 
+                    className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" 
+                    />
+                  </svg>
+                  <span className="text-white font-medium">Upload Requirements</span>
+                </label>
+                <input 
+                  id="requirement-upload" 
+                  type="file" 
+                  accept=".pdf,.doc,.docx,.txt,.md,.json,.xml,.yaml,.yml"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      console.log('File uploaded:', file.name);
+                      // Here you can add logic to handle the uploaded file
+                      alert(`File "${file.name}" uploaded successfully!`);
+                    }
+                  }}
+                />
+
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Diamond Layout Section */}
-      <section className="py-20 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             {/* AI-Enhanced Development Phases Section */}
+       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50">
+         
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Specialized AI Testing Team
+              AI-Enhanced Development Phases
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Each agent is designed for specific testing scenarios, working together to ensure 
-              comprehensive quality assurance across your entire development lifecycle.
+              Each phase is enhanced with intelligent AI agents, creating a more efficient, 
+              automated, and intelligent development process.
             </p>
           </motion.div>
 
-          {/* Diamond Grid Layout */}
-          <div className="relative">
-            {/* Top Row - 3 Agents */}
-            <div className="flex justify-center mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                {agents.slice(0, 3).map((agent, index) => (
-                  <motion.div
-                    key={agent.name}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    className="relative"
-                  >
-                    <Link to={agent.path} className="block h-full">
-                      <div className={`${agent.color} ${agent.borderColor} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 backdrop-blur-sm bg-white/10 h-full flex flex-col`}>
-                        <div className="relative mb-6 flex-shrink-0">
-                          <img 
-                            src={agent.image} 
-                            alt={agent.name}
-                            className="w-32 h-32 mx-auto object-cover rounded-full border-4 border-white/20 shadow-lg"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = 'none';
-                              const fallback = target.nextSibling as HTMLElement;
-                              if (fallback) fallback.style.display = 'block';
-                            }}
-                          />
-                          <div className="text-6xl text-center hidden">{agent.name.charAt(0)}</div>
-                        </div>
-                        <div className="flex-1 flex flex-col">
-                          <h3 className={`text-2xl font-bold mb-2 text-center ${agent.textColor}`}>{agent.name}</h3>
-                          <p className={`font-medium mb-4 text-center ${agent.textColor}`}>{agent.subtitle}</p>
-                          <p className={`text-base text-center ${agent.textColor} flex-1`}>{agent.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                                 {/* SDLC Phases - Beautiful Circular Layout */}
+           <div className="flex justify-center items-center py-16">
+             <div className="relative w-[800px] h-[800px]">
+               {/* Central Highlight */}
+               <div className="absolute inset-0 flex items-center justify-center z-10">
+                 <div className="bg-gradient-to-br from-primary via-secondary to-logo-teal text-white rounded-full w-40 h-40 flex items-center justify-center shadow-2xl border-8 border-white/30 backdrop-blur-sm relative overflow-hidden">
+                   {/* Animated background effect */}
+                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
+                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
+                   <div className="text-center relative z-10">
+                     <div className="text-2xl font-bold mb-1 drop-shadow-lg">Agentic</div>
+                     <div className="text-xl font-bold drop-shadow-lg">SDLC</div>
+                     <div className="text-sm opacity-90 mt-1 drop-shadow-lg">Process</div>
+                   </div>
+                 </div>
+               </div>
 
-            {/* Middle Row - 1 Agent (Thinkodactyl) */}
-            <div className="flex justify-center mb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="relative"
-              >
-                <Link to={agents[6].path} className="block">
-                  <div className={`${agents[6].color} ${agents[6].borderColor} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 backdrop-blur-sm bg-white/10 w-80 h-full flex flex-col`}>
-                    <div className="relative mb-6 flex-shrink-0">
-                      <img 
-                        src={agents[6].image} 
-                        alt={agents[6].name}
-                        className="w-32 h-32 mx-auto object-cover rounded-full border-4 border-white/20 shadow-lg"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextSibling as HTMLElement;
-                          if (fallback) fallback.style.display = 'block';
-                        }}
-                      />
-                      <div className="text-6xl text-center hidden">{agents[6].name.charAt(0)}</div>
-                    </div>
-                    <div className="flex-1 flex flex-col">
-                      <h3 className={`text-2xl font-bold mb-2 text-center ${agents[6].textColor}`}>{agents[6].name}</h3>
-                      <p className={`font-medium mb-4 text-center ${agents[6].textColor}`}>{agents[6].subtitle}</p>
-                      <p className={`text-base text-center ${agents[6].textColor} flex-1`}>{agents[6].description}</p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            </div>
+               {/* Curved Arrows SVG - Above the circles */}
+               <svg className="absolute inset-0 w-full h-full z-20" viewBox="0 0 800 800" style={{ pointerEvents: 'none' }}>
+                 {/* Curved arrows connecting each phase */}
+                 {[0, 1, 2, 3, 4, 5].map((index) => {
+                   const startAngle = (index * 60 - 90) * Math.PI / 180;
+                   const endAngle = ((index + 1) * 60 - 90) * Math.PI / 180;
+                   const radius = 280;
+                   
+                   // Calculate start and end points on the outer circumference
+                   const arrowRadius = radius + 30; // Arrows follow the outer arc
+                   
+                   const x1 = 400 + arrowRadius * Math.cos(startAngle);
+                   const y1 = 400 + arrowRadius * Math.sin(startAngle);
+                   const x2 = 400 + arrowRadius * Math.cos(endAngle);
+                   const y2 = 400 + arrowRadius * Math.sin(endAngle);
+                   
+                   // Create arc path that follows the circle's circumference
+                   const largeArcFlag = Math.abs(endAngle - startAngle) > Math.PI ? 1 : 0;
+                   const sweepFlag = 1; // Clockwise
+                   
+                   // Arrow colors matching each phase theme
+                   const arrowColors = [
+                     '#3B82F6', // Blue for Analyze
+                     '#10B981', // Green for Specify
+                     '#8B5CF6', // Purple for Architect
+                     '#F97316', // Orange for Implement
+                     '#EF4444', // Red for Validate
+                     '#14B8A6'  // Teal for Deploy
+                   ];
+                   
+                   // Calculate arrowhead position and direction
+                   const arrowAngle = endAngle - Math.PI / 12; // Slightly before the end point
+                   const arrowX = 400 + arrowRadius * Math.cos(arrowAngle);
+                   const arrowY = 400 + arrowRadius * Math.sin(arrowAngle);
+                   
+                   // Calculate arrowhead direction (tangent to the curve)
+                   const tangentAngle = arrowAngle + Math.PI / 2;
+                   const arrowheadLength = 15;
+                   const arrowheadWidth = 8;
+                   
+                   // Arrowhead points
+                   const arrowheadX1 = arrowX - arrowheadLength * Math.cos(tangentAngle - Math.PI / 6);
+                   const arrowheadY1 = arrowY - arrowheadLength * Math.sin(tangentAngle - Math.PI / 6);
+                   const arrowheadX2 = arrowX - arrowheadLength * Math.cos(tangentAngle + Math.PI / 6);
+                   const arrowheadY2 = arrowY - arrowheadLength * Math.sin(tangentAngle + Math.PI / 6);
+                   
+                   return (
+                     <g key={index}>
+                       {/* Main curved arrow path */}
+                       <path
+                         d={`M ${x1} ${y1} A ${arrowRadius} ${arrowRadius} 0 ${largeArcFlag} ${sweepFlag} ${arrowX} ${arrowY}`}
+                         fill="none"
+                         stroke={arrowColors[index]}
+                         strokeWidth="3"
+                         strokeLinecap="round"
+                         style={{ pointerEvents: 'none' }}
+                       />
+                       
+                       {/* Arrowhead */}
+                       <path
+                         d={`M ${arrowX} ${arrowY} L ${arrowheadX1} ${arrowheadY1} M ${arrowX} ${arrowY} L ${arrowheadX2} ${arrowheadY2}`}
+                         fill="none"
+                         stroke={arrowColors[index]}
+                         strokeWidth="4"
+                         strokeLinecap="round"
+                         style={{ pointerEvents: 'none' }}
+                       />
+                       
+                       {/* Arrowhead fill for better visibility */}
+                       <path
+                         d={`M ${arrowX} ${arrowY} L ${arrowheadX1} ${arrowheadY1} L ${arrowheadX2} ${arrowheadY2} Z`}
+                         fill={arrowColors[index]}
+                         style={{ pointerEvents: 'none' }}
+                       />
+                       
+                       {/* Glow effect for better visibility */}
+                       <path
+                         d={`M ${x1} ${y1} A ${arrowRadius} ${arrowRadius} 0 ${largeArcFlag} ${sweepFlag} ${arrowX} ${arrowY}`}
+                         fill="none"
+                         stroke={arrowColors[index]}
+                         strokeWidth="6"
+                         strokeOpacity="0.3"
+                         strokeLinecap="round"
+                         style={{ pointerEvents: 'none' }}
+                       />
+                     </g>
+                   );
+                 })}
+               </svg>
 
-            {/* Bottom Row - 3 Agents */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                {agents.slice(3, 6).map((agent, index) => (
-                  <motion.div
-                    key={agent.name}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: (index + 4) * 0.1, duration: 0.6 }}
-                    className="relative"
-                  >
-                    <Link to={agent.path} className="block h-full">
-                      <div className={`${agent.color} ${agent.borderColor} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 backdrop-blur-sm bg-white/10 h-full flex flex-col`}>
-                        <div className="relative mb-6 flex-shrink-0">
-                          <img 
-                            src={agent.image} 
-                            alt={agent.name}
-                            className="w-32 h-32 mx-auto object-cover rounded-full border-4 border-white/20 shadow-lg"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = 'none';
-                              const fallback = target.nextSibling as HTMLElement;
-                              if (fallback) fallback.style.display = 'block';
-                            }}
-                          />
-                          <div className="text-6xl text-center hidden">{agent.name.charAt(0)}</div>
-                        </div>
-                        <div className="flex-1 flex flex-col">
-                          <h3 className={`text-2xl font-bold mb-2 text-center ${agent.textColor}`}>{agent.name}</h3>
-                          <p className={`font-medium mb-4 text-center ${agent.textColor}`}>{agent.subtitle}</p>
-                          <p className={`text-base text-center ${agent.textColor} flex-1`}>{agent.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+               {/* Phase Circles */}
+               {sdlcPhases.map((phase, index) => {
+                 const angle = (index * 60) - 90; // Start from top, 60 degrees apart
+                 const radius = 280;
+                 const x = 400 + radius * Math.cos(angle * Math.PI / 180);
+                 const y = 400 + radius * Math.sin(angle * Math.PI / 180);
+                 
+                 // Beautiful gradient colors for each phase
+                 const gradients = [
+                   'from-blue-500 to-blue-600',
+                   'from-green-500 to-green-600', 
+                   'from-purple-500 to-purple-600',
+                   'from-orange-500 to-orange-600',
+                   'from-red-500 to-red-600',
+                   'from-teal-500 to-teal-600'
+                 ];
+                 
+                 return (
+                   <motion.div
+                     key={phase.id}
+                     initial={{ opacity: 0, scale: 0 }}
+                     whileInView={{ opacity: 1, scale: 1 }}
+                     viewport={{ once: true }}
+                     transition={{ delay: index * 0.2, duration: 0.8 }}
+                     className="absolute z-30"
+                     style={{
+                       left: `${x - 80}px`,
+                       top: `${y - 80}px`,
+                       transform: 'translate(-50%, -50%)'
+                     }}
+                   >
+                     <Link 
+                       to={phase.id === 'testing' ? '/testing-agents' : `/phase/${phase.id}`} 
+                       onClick={(e) => { 
+                         e.preventDefault();
+                         console.log('Phase clicked:', phase.id, 'Stage:', phase.stage, 'Navigating to:', phase.id === 'testing' ? '/testing-agents' : `/phase/${phase.id}`);
+                         console.log('Full phase object:', phase);
+                         // Force navigation
+                         window.location.href = phase.id === 'testing' ? '/testing-agents' : `/phase/${phase.id}`;
+                       }}
+                       className="block"
+                     >
+                       <div className={`w-40 h-40 rounded-full bg-gradient-to-br ${gradients[index]} text-white flex flex-col items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 cursor-pointer border-4 border-white/40 backdrop-blur-sm group relative overflow-hidden`}>
+                         {/* Shimmer effect */}
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                         
+                         {/* Inner glow effect */}
+                         <div className="absolute inset-2 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-full"></div>
+                         
+                         <div className="text-center px-2 z-10 relative">
+                           <div className="text-3xl font-bold mb-1 drop-shadow-lg">{index + 1}</div>
+                           <div className="text-lg font-bold leading-tight mb-1 drop-shadow-lg">{phase.stage}</div>
+                           <div className="text-xs opacity-90 leading-tight drop-shadow-lg">{phase.name.split(' ')[0]}</div>
+                         </div>
+                         
+                         {/* Hover effect - show more details */}
+                         <div className="absolute inset-0 bg-black/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                           <div className="text-center px-3">
+                             <div className="text-sm font-bold mb-1">{phase.stage}</div>
+                             <div className="text-xs leading-tight">{phase.description}</div>
+                           </div>
+                         </div>
+                         
+                         {/* Outer ring glow on hover */}
+                         <div className="absolute inset-0 rounded-full border-2 border-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-110"></div>
+                       </div>
+                     </Link>
+                   </motion.div>
+                 );
+               })}
+             </div>
+           </div>
         </div>
       </section>
 
-      {/* Recruitment Portal Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-secondary to-logo-teal">
+      {/* How It Works Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -254,47 +414,77 @@ const AIAgents = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-               Career Excellence
-             </h2>
-             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-               Join our team of experts working with cutting-edge AI technologies. 
-               Discover rewarding career opportunities at Coastal Seven.
-             </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              How Agentic SDLC Works
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our AI agents work seamlessly across the development lifecycle, 
+              providing intelligent automation and decision-making at every stage.
+            </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
-          >
-            <div className="max-w-2xl mx-auto">
-                             <h3 className="text-2xl font-bold text-white mb-4">
-                 Talent Hub
-               </h3>
-               <p className="text-lg text-white/90 mb-8">
-                 Access our comprehensive professional platform to explore career opportunities 
-                 in AI, software development, testing, and emerging technologies.
-               </p>
-                                            <div className="flex justify-center">
-                 <a
-                   href="http://13.204.47.60/login"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 shadow-xl border-2 border-transparent hover:border-white"
-                 >
-                   <svg className="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                   </svg>
-                   Join Us
-                 </a>
-               </div>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Intelligent Automation</h3>
+              <p className="text-gray-600">
+                AI agents automate repetitive tasks and provide intelligent insights 
+                throughout the development process.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="bg-secondary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Continuous Learning</h3>
+              <p className="text-gray-600">
+                Agents learn from each interaction and improve their performance 
+                over time with self-learning capabilities.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="bg-logo-teal/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-10 h-10 text-logo-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Quality Assurance</h3>
+              <p className="text-gray-600">
+                Comprehensive testing and validation at every stage ensures 
+                high-quality deliverables and reduced defects.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
+
+
     </motion.div>
   );
 };

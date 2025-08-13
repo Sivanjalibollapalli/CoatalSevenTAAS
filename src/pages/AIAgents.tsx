@@ -145,7 +145,7 @@ const AIAgents = () => {
             >
               <div className="relative w-96 h-96 mb-6">
                 <img 
-                  src="/src/assets/req.png" 
+                  src="/req.png" 
                   alt="Agentic SDLC Process"
                   className="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white/30"
                   onError={(e) => {

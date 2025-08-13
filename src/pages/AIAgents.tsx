@@ -224,7 +224,7 @@ const AIAgents = () => {
 
                                  {/* SDLC Phases - Beautiful Circular Layout */}
            <div className="flex justify-center items-center py-16">
-             <div className="relative w-[800px] h-[800px]">
+             <div className="relative w-[900px] h-[900px]">
                {/* Central Highlight */}
                <div className="absolute inset-0 flex items-center justify-center z-10">
                  <div className="bg-gradient-to-br from-primary via-secondary to-logo-teal text-white rounded-full w-40 h-40 flex items-center justify-center shadow-2xl border-8 border-white/30 backdrop-blur-sm relative overflow-hidden">
@@ -240,7 +240,7 @@ const AIAgents = () => {
                </div>
 
                {/* Curved Arrows SVG - Above the circles */}
-               <svg className="absolute inset-0 w-full h-full z-20" viewBox="0 0 800 800" style={{ pointerEvents: 'none' }}>
+               <svg className="absolute inset-0 w-full h-full z-20" viewBox="0 0 900 900" style={{ pointerEvents: 'none' }}>
                  {/* Curved arrows connecting each phase (excluding the loop from Deploy to Analyze) */}
                  {[0, 1, 2, 3, 4].map((index) => {
                    const startAngle = (index * 60 - 90) * Math.PI / 180;
@@ -250,10 +250,10 @@ const AIAgents = () => {
                    // Calculate start and end points on the outer circumference
                    const arrowRadius = radius + 30; // Arrows follow the outer arc
                    
-                   const x1 = 400 + arrowRadius * Math.cos(startAngle);
-                   const y1 = 400 + arrowRadius * Math.sin(startAngle);
-                   const x2 = 400 + arrowRadius * Math.cos(endAngle);
-                   const y2 = 400 + arrowRadius * Math.sin(endAngle);
+                   const x1 = 450 + arrowRadius * Math.cos(startAngle);
+                   const y1 = 450 + arrowRadius * Math.sin(startAngle);
+                   const x2 = 450 + arrowRadius * Math.cos(endAngle);
+                   const y2 = 450 + arrowRadius * Math.sin(endAngle);
                    
                    // Create arc path that follows the circle's circumference
                    const largeArcFlag = Math.abs(endAngle - startAngle) > Math.PI ? 1 : 0;
@@ -271,8 +271,8 @@ const AIAgents = () => {
                    
                    // Calculate arrowhead position and direction
                    const arrowAngle = endAngle - Math.PI / 12; // Slightly before the end point
-                   const arrowX = 400 + arrowRadius * Math.cos(arrowAngle);
-                   const arrowY = 400 + arrowRadius * Math.sin(arrowAngle);
+                   const arrowX = 450 + arrowRadius * Math.cos(arrowAngle);
+                   const arrowY = 450 + arrowRadius * Math.sin(arrowAngle);
                    
                    // Calculate arrowhead direction (tangent to the curve)
                    const tangentAngle = arrowAngle + Math.PI / 2;
@@ -337,12 +337,12 @@ const AIAgents = () => {
                      const arrowRadius = radius + 30;
                      
                      // Start point (on the Deploy circle)
-                     const startX = 400 + arrowRadius * Math.cos(deployAngle);
-                     const startY = 400 + arrowRadius * Math.sin(deployAngle);
+                     const startX = 450 + arrowRadius * Math.cos(deployAngle);
+                     const startY = 450 + arrowRadius * Math.sin(deployAngle);
                      
                      // End point (outward direction)
-                     const endX = 400 + (arrowRadius + 80) * Math.cos(deployAngle);
-                     const endY = 400 + (arrowRadius + 80) * Math.sin(deployAngle);
+                     const endX = 450 + (arrowRadius + 100) * Math.cos(deployAngle);
+                     const endY = 450 + (arrowRadius + 100) * Math.sin(deployAngle);
                      
                      // Arrowhead calculations
                      const arrowAngle = deployAngle;
@@ -395,45 +395,31 @@ const AIAgents = () => {
                            style={{ pointerEvents: 'none' }}
                          />
                          
-                         {/* "Delivered to Client" text with enhanced styling */}
-                         <text
-                           x={endX + 25}
-                           y={endY - 15}
-                           fill="#14B8A6"
-                           fontSize="16"
-                           fontWeight="bold"
-                           textAnchor="start"
-                           style={{ 
-                             pointerEvents: 'none',
-                             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
-                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-                           }}
-                         >
-                           Delivered to Client
-                         </text>
-                         
                          {/* Background highlight for better visibility */}
                          <rect
-                           x={endX + 15}
-                           y={endY - 30}
-                           width="180"
-                           height="25"
-                           fill="rgba(255,255,255,0.9)"
-                           rx="5"
+                           x={endX + 20}
+                           y={endY - 35}
+                           width="200"
+                           height="30"
+                           fill="rgba(255,255,255,0.95)"
+                           rx="8"
+                           stroke="#14B8A6"
+                           strokeWidth="2"
                            style={{ pointerEvents: 'none' }}
                          />
                          
-                         {/* Text on top of background */}
+                         {/* "Delivered to Client" text with enhanced styling */}
                          <text
-                           x={endX + 25}
-                           y={endY - 15}
+                           x={endX + 30}
+                           y={endY - 18}
                            fill="#14B8A6"
-                           fontSize="16"
+                           fontSize="18"
                            fontWeight="bold"
                            textAnchor="start"
                            style={{ 
                              pointerEvents: 'none',
-                             filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.2))'
+                             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))',
+                             textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
                            }}
                          >
                            Delivered to Client
@@ -448,8 +434,8 @@ const AIAgents = () => {
                {sdlcPhases.map((phase, index) => {
                  const angle = (index * 60) - 90; // Start from top, 60 degrees apart
                  const radius = 280;
-                 const x = 400 + radius * Math.cos(angle * Math.PI / 180);
-                 const y = 400 + radius * Math.sin(angle * Math.PI / 180);
+                                    const x = 450 + radius * Math.cos(angle * Math.PI / 180);
+                   const y = 450 + radius * Math.sin(angle * Math.PI / 180);
                  
                  // Beautiful gradient colors for each phase
                  const gradients = [

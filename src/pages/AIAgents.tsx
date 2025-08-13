@@ -340,9 +340,9 @@ const AIAgents = () => {
                      const startX = 450 + arrowRadius * Math.cos(deployAngle);
                      const startY = 450 + arrowRadius * Math.sin(deployAngle);
                      
-                     // End point (outward direction)
-                     const endX = 450 + (arrowRadius + 100) * Math.cos(deployAngle);
-                     const endY = 450 + (arrowRadius + 100) * Math.sin(deployAngle);
+                     // End point (outward direction) - adjusted to align with text box
+                     const endX = 450 + (arrowRadius + 120) * Math.cos(deployAngle);
+                     const endY = 450 + (arrowRadius + 120) * Math.sin(deployAngle);
                      
                      // Arrowhead calculations
                      const arrowAngle = deployAngle;
@@ -395,35 +395,7 @@ const AIAgents = () => {
                            style={{ pointerEvents: 'none' }}
                          />
                          
-                         {/* Background highlight for better visibility */}
-                         <rect
-                           x={endX + 20}
-                           y={endY - 35}
-                           width="200"
-                           height="30"
-                           fill="rgba(255,255,255,0.95)"
-                           rx="8"
-                           stroke="#14B8A6"
-                           strokeWidth="2"
-                           style={{ pointerEvents: 'none' }}
-                         />
-                         
-                         {/* "Delivered to Client" text with enhanced styling */}
-                         <text
-                           x={endX + 30}
-                           y={endY - 18}
-                           fill="#14B8A6"
-                           fontSize="18"
-                           fontWeight="bold"
-                           textAnchor="start"
-                           style={{ 
-                             pointerEvents: 'none',
-                             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))',
-                             textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                           }}
-                         >
-                           Delivered to Client
-                         </text>
+
                        </>
                      );
                    })()}
@@ -500,6 +472,26 @@ const AIAgents = () => {
                    </motion.div>
                  );
                })}
+             </div>
+           </div>
+           
+           {/* Single "Delivered to Client" label positioned exactly above the arrow */}
+           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-40">
+             <div 
+               className="bg-white border-2 border-teal-600 rounded-lg px-6 py-3 shadow-xl"
+               style={{
+                 position: 'absolute',
+                 left: 'calc(50% - 320px)',
+                 top: 'calc(50% - 160px)',
+                 transform: 'translate(-50%, -50%)',
+                 minWidth: '220px',
+                 textAlign: 'center',
+                 zIndex: 50
+               }}
+             >
+               <span className="text-teal-700 font-bold text-xl drop-shadow-md">
+                 Delivered to Client
+               </span>
              </div>
            </div>
         </div>

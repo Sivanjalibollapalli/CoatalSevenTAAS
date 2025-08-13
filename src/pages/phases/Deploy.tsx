@@ -51,6 +51,83 @@ const Deploy = () => {
         </div>
       </section>
 
+      {/* AI Agents Section */}
+      <section className="py-20 bg-gradient-to-r from-teal-50 to-cyan-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              AI Agents in Deploy Phase
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Intelligent AI agents that enhance the deployment phase with automated 
+              deployment and maintenance capabilities.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                name: "Deployment Agent",
+                description: "Automates deployment processes and ensures reliable software releases to production environments.",
+                capabilities: [
+                  "Automated deployment orchestration",
+                  "Environment configuration",
+                  "Rollback management",
+                  "Deployment monitoring"
+                ],
+                icon: "🚀"
+              },
+              {
+                name: "Change Request Submission Agent",
+                description: "Manages change requests and coordinates deployment approvals and documentation.",
+                capabilities: [
+                  "Change request processing",
+                  "Approval workflow management",
+                  "Documentation generation",
+                  "Compliance tracking"
+                ],
+                icon: "📝"
+              },
+
+            ].map((agent, index) => (
+              <motion.div
+                key={agent.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-teal-500"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="text-4xl mr-4">{agent.icon}</div>
+                  <h3 className="text-2xl font-bold text-gray-900">{agent.name}</h3>
+                </div>
+                <p className="text-gray-600 mb-6">{agent.description}</p>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Capabilities:</h4>
+                  <ul className="space-y-2">
+                    {agent.capabilities.map((capability, idx) => (
+                      <li key={idx} className="flex items-center text-gray-600">
+                        <svg className="w-4 h-4 text-teal-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {capability}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* What It Does Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
